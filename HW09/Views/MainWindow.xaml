@@ -7,7 +7,48 @@
   <Design.DataContext>
     <vm:MainWindowViewModel/>
   </Design.DataContext>
-  
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-  
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="4*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <TextBlock Grid.ColumnSpan="4" 
+               FontSize="25" 
+               Margin ="10"
+               HorizontalAlignment="Center"
+               Text="Crazy Attempt to use OpenFileDialog successfully."/>
+    <TextBlock Grid.Row="1"
+               FontSize="15"
+               Text="Find data"/>
+    <TextBox Text="{Binding FilePath}"
+             Grid.Row="1"
+             Grid.Column="1"
+             MinWidth="100"/>
+    <Button Content="...Select a File ... "
+            Grid.Row="1"
+            Grid.Column="2"
+            MinWidth="60"
+            Command="{Binding FindFile}"/>
+    <Button Content="LOAD"
+            Grid.Row="1"
+            Grid.Column="3"
+            Command="{Binding LoadTextFile}"/>
+
+    <TextBox Text="{Binding Number}"
+             Grid.Row="2"/>
+    <TextBox Text="{Binding Name}"
+             Grid.Row="2"
+             Grid.Column="1"/>
+    <TextBox Text="{Binding Phone}"
+             Grid.Row="2"
+             Grid.Column="2"/>
+  </Grid>
 </Window>
